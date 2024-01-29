@@ -6,12 +6,17 @@
     "start": "vite",
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview"
+    "serve": "vite preview",
+    "start:typesense": "docker compose up",
+    "index:typesense": "npx tsx ./scripts/indexTypesense.ts"
   },
   "license": "MIT",
   "devDependencies": {
+    "@types/node": "^20.11.10",
+    "dotenv": "^16.4.1",
     "solid-devtools": "^0.29.2",
     "typescript": "^5.3.3",
+    "typesense": "^1.7.2",
     "vite": "^5.0.11",
     "vite-plugin-solid": "^2.8.2"
   },

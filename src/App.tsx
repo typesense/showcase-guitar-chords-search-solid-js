@@ -1,25 +1,25 @@
-import type { Component } from 'solid-js';
+import { type Component } from 'solid-js';
 
-import logo from './logo.svg';
-import styles from './App.module.css';
+import s from './App.module.css';
+import Heading from './components/Heading/Heading';
+import createInstantsearch from './hooks/createInstantsearch';
 
 const App: Component = () => {
+  createInstantsearch();
   return (
-    <div class={styles.App}>
-      <header class={styles.header}>
-        <img src={logo} class={styles.logo} alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          class={styles.link}
-          href="https://github.com/solidjs/solid"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn Solid
-        </a>
-      </header>
+    <div class={s.App}>
+      <Heading />
+      <div id={s.flex_row}>
+        <aside class='SearchAndFilter'>
+          <h3>Key</h3>
+          <div id='key_refinementList'></div>
+          <h3>Suffix</h3>
+          <div id='suffix_refinementList'></div>
+          <h3>Capo</h3>
+          <div id='capo_refinementList'></div>
+        </aside>
+        <div id='infiniteHits'></div>
+      </div>
     </div>
   );
 };

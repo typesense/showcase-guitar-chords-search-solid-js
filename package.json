@@ -15,7 +15,7 @@
   "devDependencies": {
     "@types/node": "^20.11.10",
     "@types/react-dom": "^18.2.18",
-    "cypress": "^13.6.3",
+    "cypress": "^13.6.4",
     "dotenv": "^16.4.1",
     "solid-devtools": "^0.29.2",
     "typescript": "^5.3.3",

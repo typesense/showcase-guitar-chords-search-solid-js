@@ -1,34 +1,94 @@
-## Usage
+<h1 align="center">
+ 🎸 Instant Guitar Chord Positions Search, powered by Typesense - SolidJS
+</h1>
+<div align="center">
+  <div><h3>Other versions</h3></div>
+  <a href="https://github.com/typesense/showcase-guitar-chords-search-nuxt-js">NuxtJS</a> | 
+  <a href="https://github.com/typesense/showcase-guitar-chords-search-next-js">NextJS</a> | 
+  <a href="https://github.com/typesense/showcase-guitar-chords-search-angular">Angular 15</a> |
+  <a href="https://github.com/typesense/showcase-guitar-chords-search-vanilla-js">Vanilla JS</a> |
+  <a href="https://github.com/typesense/showcase-guitar-chords-search-astro">Astro</a> |
+  <a href="https://github.com/typesense/showcase-guitar-chords-search-solid-js">SolidJS</a> |
+  <a href="https://github.com/typesense/showcase-guitar-chords-search-remix">Remix</a> |
+  <a href="https://github.com/typesense/showcase-guitar-chords-search-svelte-kit">Sveltekit</a> |
+  <a href="https://github.com/typesense/showcase-guitar-chords-search-qwik">Qwik</a> 
+</div>
 
-Those templates dependencies are maintained via [pnpm](https://pnpm.io) via `pnpm up -Lri`.
+## Tech Stack
 
-This is the reason you see a `pnpm-lock.yaml`. That being said, any package manager will work. This file can be safely be removed once you clone a template.
+- <a href="https://github.com/typesense/typesense" target="_blank">Typesense</a>
+- SolidJS
+- Typescript
+- [typesense-instantsearch-adapter](https://github.com/typesense/typesense-instantsearch-adapter) & instantsearch.js
+- Cypress
+
+All make for a blazingly fast search experience 🔥🔥🔥
+
+The guitar chord dataset & chord svg generation is from <a href="https://github.com/tombatossals/chords-db" target="_blank">tombatossals</a> which contains 2141 chord shapes of 552 chords.
+
+## Project Structure
 
 ```bash
-$ npm install # or pnpm install or yarn install
+/
+├── cypress/
+│   └── e2e tests...
+├── scripts/
+│   ├── data/
+│   │   ├── guitar.json
+│   │   └── schema.json
+│   └── indexTypesense.ts # script that index data from guitar.json into typesense server
+├── src/
+│   ├── components/
+│   │   └── UI components...
+│   ├── hooks/
+│   │   └── createInstantsearch.tsx # run instantsearch.js on mount
+│   ├── utils/
+│   │   ├── reactChord.ts # draw guitar chord svg
+│   │   └── typesense.ts # typesense-instantsearch-adapter config
+│   └── App.tsx # guitar chords search
+└── package.json
+```
+## Development
+
+To run this project locally, make sure you have docker and nodejs, install the dependencies and run the local server:
+
+Installation
+
+```shell
+git clone https://github.com/typesense/showcase-guitar-chords-search-solid-js.git
+
+cd showcase-guitar-chords-search-solid-js
+
+npm i
 ```
 
-### Learn more on the [Solid Website](https://solidjs.com) and come chat with us on our [Discord](https://discord.com/invite/solidjs)
+Start typesense server
 
-## Available Scripts
+```shell
+npm run start:typesense # or: docker compose up
+```
 
-In the project directory, you can run:
+Index data into typesense
 
-### `npm run dev` or `npm start`
+```shell
+npm run index:typesense
+```
 
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Start the dev web app
 
-The page will reload if you make edits.<br>
+```shell
+npm run dev
+```
 
-### `npm run build`
-
-Builds the app for production to the `dist` folder.<br>
-It correctly bundles Solid in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+Open http://localhost:3000 to see the app ✌️
 
 ## Deployment
+Set env variables to point the app to the Typesense Cluster
 
-You can deploy the `dist` folder to any static host provider (netlify, surge, now, etc.)
+```env
+VITE_TYPESENSE_SEARCH_ONLY_API_KEY=xxx
+VITE_TYPESENSE_HOST=xxx.typesense.net
+VITE_TYPESENSE_PORT=443
+VITE_TYPESENSE_PROTOCOL=https
+```
+

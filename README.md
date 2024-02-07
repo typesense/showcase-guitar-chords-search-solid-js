@@ -37,16 +37,16 @@ The guitar chord dataset & chord svg generation is from <a href="https://github.
 │   │   ├── guitar.json
 │   │   └── schema.json
 │   └── indexTypesense.ts # script that index data from guitar.json into typesense server
-├── src/
-│   ├── components/
-│   │   └── UI components...
-│   ├── hooks/
-│   │   └── createInstantsearch.tsx # run instantsearch.js on mount
-│   ├── utils/
-│   │   ├── reactChord.ts # draw guitar chord svg
-│   │   └── typesense.ts # typesense-instantsearch-adapter config
-│   └── App.tsx # guitar chords search
-└── package.json
+└── src/
+    ├── components/
+    │   └── UI components...
+    ├── hooks/
+    │   └── createInstantsearch.tsx # run instantsearch.js on mount
+    ├── utils/
+    │   ├── reactChord.ts # draw guitar chord svg
+    │   └── typesense.ts # typesense-instantsearch-adapter config
+    └── App.tsx # guitar chords search
+
 ```
 ## Development
 
